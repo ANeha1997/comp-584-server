@@ -25,8 +25,14 @@ public partial class Comp584Context : DbContext
 
         IConfigurationBuilder builder = new ConfigurationBuilder()
 
-            .AddJsonFile("appsettings.json").AddJsonFile("appSettings.Development.json", optional:true);
-            
+            .AddJsonFile("appsettings.json").AddJsonFile("appSettings.Development.json");
+        IConfigurationRoot config = builder.Build();
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+        }
+
+
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
