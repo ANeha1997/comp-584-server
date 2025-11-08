@@ -18,8 +18,8 @@ namespace comp_584_server.Controllers
         {
             _logger = logger;
         }
+        
         [Authorize]
-
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
