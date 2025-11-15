@@ -1,3 +1,4 @@
+using comp_584_server;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -29,6 +30,7 @@ builder.Services.AddSwaggerGen(c =>
     // var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     // c.IncludeXmlComments(xmlPath);
 });
+builder.Services.AddScoped<JwtHandler>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
